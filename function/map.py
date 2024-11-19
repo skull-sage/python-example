@@ -1,12 +1,10 @@
 #MAP apply a function on elements from a set, list or tuple
 
 
-#defining a curry
+#defining a higher order function curry
 def multiplier(m):
-
   def multiply(num):
     return num * m
-
   return multiply
 
 

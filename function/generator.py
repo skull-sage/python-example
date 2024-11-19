@@ -9,22 +9,23 @@ print(genItem)
 print(next(genItem))
 print(next(genItem))
 # iteration start from 3rd iterable due to first 2-next call
-# we cab build list and tuple
+# we can build list and tuple
 # print(list(genItem))
 print(tuple(genItem))
 
 
 def genEven():
-  d = 4
-  for x in range(10):
-    if d % 2 == 0:
-      yield d
-      d += 4
+  for x in range(1, 10):
+    if x % 2 == 0:
+      yield x * 2
   pass
 
 genEvenItem = genEven()
-print(list(genEvenItem))
 
-# invoking list on 26 will make generation complete
-print(next(genEvenItem)) 
-print(next(genEvenItem))
+print(genEven) # prints type <function genEven 0xaddress>
+print(genEvenItem) # prints type <generator object genEven 0xaddress>
+
+# print(list(genEvenItem))
+for idx, item in enumerate(genEvenItem, 1):
+    print(idx, item)
+    
