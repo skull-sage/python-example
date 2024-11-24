@@ -5,7 +5,7 @@
     allowed type for key: strings, numbers and tuples 
     
 """
-
+print("\n=== Creating Dictionary ===")
 dataMap = {"key1": "Val 1", 1: "val 2", (10, 20): "tuple (10, 20)"}
 print(dataMap)
 
@@ -16,6 +16,10 @@ print(dataMap2)
 
 dataMap3 = dict([("key1", "tuple val 1"), ("key2", "tuple val 2")])
 print(dataMap3)
+
+dataMap4 = dict.fromkeys(("A", "B", "C"), (1, 2, 3))
+print(dataMap4)
+
 
 print("\n==== retrieving elements ===")
 print("single item get(): ", dataMap.get(401, "Key Not Found")) # second arg is optional and get

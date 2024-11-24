@@ -9,29 +9,51 @@ c = Counter(cats=4, dogs=8)
 """
 from collections import Counter
 
-countDict = Counter()
+count_dict = Counter()
 
 
-list = ["A", "A", "B", "C", "A", "D", "E", "B"]
+list = ["B", "C",  "D", "E", "A", "B", "A", "A"]
 
 for item in list:
-    countDict[item] += 1
+    count_dict[item] += 1
     
-print("counter dictionary", countDict)
-print("missing element", countDict["Missing"]) 
+print("counter dictionary", count_dict)
+print("missing element", count_dict["Missing"]) 
 
 # notable functions
-print("flatten elements according to their count", countDict.elements())
-print("prints most common n item", countDict.most_common(2))
+print("flatten elements according to their count", count_dict.elements())
+print("most common n=2 item", count_dict.most_common(2))
+otuple_list = count_dict.most_common()
+print("item ordered as per occurance", otuple_list)
+print("least occured: ", otuple_list[:-1:-1])
+
 #total
-print("totalling of", countDict.total())
+print("totalling of", count_dict.total())
+
+# Modification
       
 #subtract(iterable or mapping or Counter)
-countDict.subtract({"A":1, "D": 0}
-print("subtracting count", countDict))
+count_dict.subtract({"A":1, "D": 2})
+print("subtracting count", count_dict)
+ 
+count_dict.update({"D": 4, "E": 5})
+print("after updating", count_dict)
 
 
-#update(iterable or maping or Counter)
-countDict.update({"D": 1, "E": 1})
-print("after updating", countDict)
-#fromkeys(iterable) is not implemented
+#fromkeys(iterable) is not implemented; Counter(iterable) can be used instead
+
+#matchmatical operation on Counter; counter that results in 0 or less are omited from result
+counter_1 = Counter(['a', 'b', 'c'])
+counter_2 =  Counter({'d': 1, 'b': 2})
+
+counter_calc = counter_1 + counter_2
+print("c1 + c2", counter_calc) # d is omited
+
+counter_calc = counter_1 - Counter(['d', 'c'])
+print("c1 - c2", counter_calc)
+
+counter_calc = counter_1 & counter_2 # intersection
+print("c1 & c2", counter_calc)
+
+counter_calc = counter_1 | counter_2 # union
+print("c1 | c2", counter_calc)
