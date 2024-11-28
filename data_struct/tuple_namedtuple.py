@@ -4,11 +4,11 @@ can be accessed with name instead of positinal index(i.e., [idx])
 """
 from collections import namedtuple
 
-Pos = namedtuple("Pos", ["x", "y"])
+# Point = namedtuple("Point", ("x", "y")) # better approach to use ["x", "y"]
+#or 
+Point = namedtuple("Point", "x, y")
+point = Point(10, 30)
 
-pos = Pos(10, 20)
+print(f"access by position: [0]={point[0]} [1]={point[1]}")
+print(f"access by key: x={point.x}, y={point.y}")
 
-print("positional access", pos[0] + pos[1]) 
-print(f"named acces: x:{pos.x} y:{pos.y}")
-
-x, y = pos
