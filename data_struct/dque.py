@@ -1,5 +1,6 @@
 """
-  deque is a collection type efficient for appending item from both      end. We can emulate 
+  deque is a collection type efficient for appending item from both end. 
+  We can emulate 
     - stack for FIFO with append(item) & pop() ops
     - queue for LIFO with appendLeft(item) & popLeft() ops
 """

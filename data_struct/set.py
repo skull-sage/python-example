@@ -48,7 +48,7 @@ print("intersection (A ∩ B)", {"a", "b"}.intersection({"b", "c"}))
 print("union (A U B)", {"a", "b"}.union({"b", "c"}))
   
  
-# update (update/union), difference_update, symmetric_difference_update, intersection_update allow mutation with iterable: list, tuple etc
+# update (update/union), difference_update, symmetric_difference_update, intersection_update with list/tuple/set/iterable etc
 fruitA = {"a", "b", "c"}
 print(f"===starting with fruit set {fruitA}===")
 fruitA.update(["c", "d", "e"])
