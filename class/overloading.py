@@ -1,26 +1,57 @@
-class SuperMan:
+"""
+  Following operator overloading is supported: 
+  Addition	            p1 + p2	    p1.__add__(p2)
+  Subtraction	          p1 - p2	    p1.__sub__(p2)
+  Multiplication	      p1 * p2	    p1.__mul__(p2)
+  Power	                p1 ** p2	  p1.__pow__(p2)
+  Division	            p1 / p2	    p1.__truediv__(p2)
+  Floor Division	      p1 // p2	  p1.__floordiv__(p2)
+  Remainder (modulo)	  p1 % p2	    p1.__mod__(p2)
+"""
 
-  def __init__(self, powerPoint=(10, 20)) -> None:
-    self.trueName = 'Rashed'
-    self.grandEnemy = 'Purple Thanos'
-    self.powerPoint = powerPoint
+class GameChar:
+  def __init__(self, name, diffence):
+    self.name = name
+    self.diffence = diffence
+    self.attack_power = 50
+    
+  def __add__(self, attack_power):
+    self.attack_power += attack_power
+    print("Power up: ", self.attack_power)
+    return self
+  
+  def __truediv__(self, scale):
+    self.attack_power /= scale
+    
+  def __floordiv__(self, scale):
+    self.attack_power //= scale
+    
+  def __sub__(self, attack_power):
+    self.attack_power -= attack_power
+    print("Power down: ", self.attack_power)
+    return self
+    
+  def attack(self, enemy: 'GameChar'):
+    if(enemy.diffence >= self.attack_power):
+      print(f"Urrgh! {enemy.name} is too strong to get a scratch")
+    else:
+      print(f"Yah ha ha! {enemy.name} is dead")
+  
+    pass
+  #class GameChar
+  
+fire_hero = GameChar("Fire Bistral", 50)
+minion = GameChar("minion", 40)
+boss = GameChar("mini-boss", 60)
 
-  # overloading toString for print
-  def __str__(self):
-    return "%s has enemy %s with power %s"   % (self.trueName, self.grandEnemy, self.powerPoint)
+fire_hero.attack(minion)
+fire_hero.attack(boss)
 
-  def __add__(self, other):
-    # trying tupple addition
-    newPower = tuple( x + y 
-                     for x, y in zip(self.powerPoint, other.powerPoint))
-    return SuperMan(newPower)
+fire_hero = fire_hero + 20
+fire_hero.attack(boss)
 
-aMan = SuperMan()
-powerMan = SuperMan((100, 100))
+fire_hero = fire_hero - 50
+fire_hero.attack(minion)
 
-poweredUp1 = aMan + powerMan
-poweredUp2 = powerMan + aMan;
-
-print(" POWER ADDED ")
-print(poweredUp1)
-print(poweredUp2)
+print(5 / 2)
+print(5 // 2)
