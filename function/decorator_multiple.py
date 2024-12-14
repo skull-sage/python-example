@@ -24,8 +24,6 @@ def hero_exe(*pargs, **kargs):
     
 hero_exe(hero="Super man", msg=" I am born to fuck them all")
 
-    
-
 
 def smart_divide(divide_func):
     def inner(a, b):
