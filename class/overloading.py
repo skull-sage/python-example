@@ -52,6 +52,4 @@ fire_hero.attack(boss)
 
 fire_hero = fire_hero - 50
 fire_hero.attack(minion)
-
-print(5 / 2)
-print(5 // 2)
+ 

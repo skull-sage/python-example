@@ -8,35 +8,38 @@ Decorator:
 
 import time
 
-def calc_performance(computing_func):
-    def time_wrap():
+def track_performance(computing_func):
+    def time_wrap(*pargs, **kargs):
         start = time.time()
-        result = computing_func()
+        result = computing_func(*pargs, *kargs)
         end = time.time()
+        
+        print(f"{computing_func.__name__} took: {end - start}")
+        
         return result, start, end 
     
     return time_wrap
 
 
-def undecorated_computing():
-    for idx in range(0, 50000000):
+def undecorated_computing(count_len):
+    for idx in range(0, count_len):
         continue
     
-    return "Undecorated Computing"
+    return "Unsmart Work"
 
-ugly_performer = calc_performance(undecorated_computing)
-(result, start, end) = ugly_performer()
-print(f"Undecorated func {result} took: {end - start}")
+ugly_performer = track_performance(undecorated_computing)
+(result, start, end) = ugly_performer(4000000) 
+print(f"Without decoration,  Returned Result is #{result}  ")
 
-@calc_performance
-def decorated_computing():
-    for idx in range(0, 50000000):
+@track_performance
+def decorated_computing(count_len):
+    for idx in range(0, count_len):
         continue
     
-    return "Decorated Computing"
+    return "Smart Work"
 
-(result, start, end) = decorated_computing()
-print(f"Magic decoration: {result} took: {end - start}")
+(result, start, end) = decorated_computing(50000000)
+print(f"Magic decoration, Returned Result is #{result}  ")
 
 
 
