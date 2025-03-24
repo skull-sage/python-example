@@ -6,7 +6,7 @@ Decorator:
  - decoration logic will be applied in the order assigned to target function
 """
 
-import time
+import time        
 
 def track_performance(computing_func):
     def time_wrap(*pargs, **kargs):

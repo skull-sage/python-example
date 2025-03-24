@@ -5,7 +5,7 @@ description = ""
 authors = ["Your Name <you@example.com>"]
 
 [tool.poetry.dependencies]
-python = ">=3.10.0,<3.11"
+python = "^3.11.0"
 mynested2703 = "^1.2.7"
 office365-rest-client = "^2.2.0"
 matplotlib = "^3.8.2"
